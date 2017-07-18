@@ -15,7 +15,7 @@ public class MethodExecutionTimer {
 	 * Run this class with arguments eg.
 	 * 
 	 * {no. of threads} {no. of calls to method} {timeout value in seconds}
-	 * 4 50
+	 * 4 50 10
 	 */
 
 	private static int numOfThreads = 1;
