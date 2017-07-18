@@ -6,7 +6,7 @@ Test #1
 - validate each of the ip addresses line by line and display the list of valid ip addresses and subsequently display the invalid ip addresses
 
 Test #2
-- StudentSorter class will use Student pojo object which implement the Comparator to be used with Collections sort API.
+- StudentSorter class will use Student pojo object which implement the Comparable to be used with Collections sort API.
 - output will be sorted first by GPA descending then by name in alphabetical order and lastly by student's ID
 
 Test #3
