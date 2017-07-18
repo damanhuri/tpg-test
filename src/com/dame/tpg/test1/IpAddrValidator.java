@@ -2,6 +2,7 @@ package com.dame.tpg.test1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,13 +46,9 @@ public class IpAddrValidator {
 	}
 	
 	private static List<String> getListOfIpAddresses() throws FileNotFoundException, URISyntaxException {
-		String thisPath = IpAddrValidator.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
-		String parentPath = new File(thisPath).getParent();
-		String filePath = parentPath + "/ip_addresses.txt";
+		InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream("ip_addresses.txt");
 		
-		System.out.println("Path : " + filePath);
-		
-		Scanner s = new Scanner(new File(filePath));
+		Scanner s = new Scanner(is);
 		List<String> list = new ArrayList<String>();
 		while (s.hasNext()){
 		    list.add(s.next());

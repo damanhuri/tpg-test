@@ -1,6 +1,5 @@
 package com.dame.tpg.test3;
 
-import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ExecutionException;
@@ -22,7 +21,7 @@ public class MethodExecutionTimer {
 	private static int numOfRepeats = 1;
 	
 	// in miliseconds
-	private static int TIMEOUT = 10000;
+	private static int TIMEOUT = 5000;
 	
 	public static void main(String[] args) {
 
@@ -102,7 +101,12 @@ public class MethodExecutionTimer {
 				}
 			}
 			
-			System.out.println("min="+min+", max="+max+", average response time=" + totalDuration/numOfSuccess + ", no. of timeouts/errors=" + numOfTimeout + ", total success calls=" + numOfSuccess);
+			long avgExecTime = numOfSuccess == 0 ? 0 : totalDuration/numOfSuccess;
+			System.out.println("Min. execution time = "+min
+					+", Max. execution time = " + max
+					+", Average execution time = " + avgExecTime 
+					+", No. of timeouts/errors = " + numOfTimeout 
+					+ ", No. of success execution = " + numOfSuccess);
 
 		} finally {
 			// shut down the executor service now
@@ -164,13 +168,9 @@ public class MethodExecutionTimer {
 
 		long startTime = System.currentTimeMillis();
 		
-		try {
-			// to simulate the random execution time of this method
-			// set to random value from within 20 secs
-			Thread.sleep(new Random().nextInt(20000) + 1);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		// call the method to measure
+		TestClass testClass = new TestClass();
+		testClass.testMethod();
 		
 		long endTime = System.currentTimeMillis();
 		long totalTime = endTime - startTime;
