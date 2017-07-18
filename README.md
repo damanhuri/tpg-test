@@ -2,7 +2,7 @@
 TPG test exercises
 
 Test #1
-- read list of ip addresses from file ip_addresses.txt located at the root of project path
+- read list of ip addresses from file ip_addresses.txt (add resources folder as source build path)
 - validate each of the ip addresses line by line and display the list of valid ip addresses and subsequently display the invalid ip addresses
 
 Test #2
@@ -10,7 +10,7 @@ Test #2
 - output will be sorted first by GPA descending then by name in alphabetical order and lastly by student's ID
 
 Test #3
-- this tool will do measurement of time needed to execute a method ( callMethodToMeasure() as in the example )
+- this tool will do measurement of time needed to execute a method ( TestClass.testMethod() as in the example )
 - arguments of the tool are {no. of threads} {no. of calls to method} {timeout value in seconds}
 - no. of threads : to define number of threads will be initialized in the pool in order for the measurement execution to run concurrently
 - no. of calls to method : to define how many tests will be executed to get minimum/maximum/average time of method's execution
