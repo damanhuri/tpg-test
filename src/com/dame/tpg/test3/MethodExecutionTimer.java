@@ -87,7 +87,6 @@ public class MethodExecutionTimer {
 							}
 							
 							System.out.println("Callable execution completed. status: " + status.toString());
-//							LOG.info("Callable execution completed. status: "+status.toString());
 							
 							numOfSuccess++;
 						}
@@ -100,7 +99,6 @@ public class MethodExecutionTimer {
 
 				} catch (InterruptedException | ExecutionException e) {
 					System.out.println("Callable execution returned error!");
-//					LOG.error("Callable execution returned error!", e);
 				}
 			}
 			
@@ -154,12 +152,10 @@ public class MethodExecutionTimer {
 
 	private static class Status {
 		public long totalTime;
-//		public String icno;
 
 		@Override
 		public String toString() {
-			return new StringBuilder()/*.append("icno=").append(icno)*/
-										.append(" totalTime=").append(totalTime)
+			return new StringBuilder().append(" totalTime=").append(totalTime)
 										.toString();
 		}
 	}
@@ -169,11 +165,12 @@ public class MethodExecutionTimer {
 		long startTime = System.currentTimeMillis();
 		
 		try {
+			// to simulate the random execution time of this method
+			// set to random value from within 20 secs
 			Thread.sleep(new Random().nextInt(20000) + 1);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		// processing....
 		
 		long endTime = System.currentTimeMillis();
 		long totalTime = endTime - startTime;
